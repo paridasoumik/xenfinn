@@ -97,7 +97,7 @@ const DESTINATION_CHANNEL_ACCESS_ID = process.env.DESTINATION_CHANNEL_ACCESS_ID;
             const message = fullMsg.messages[0]; // Get the message from the result
     
             // Check if the message is a video or document
-            if (message.video || message.document) { 
+            if (message.video || message.document || message.photo) { 
                 await client.invoke(
                     new Api.messages.ForwardMessages({
                         fromPeer: new Api.InputPeerChannel({ channelId: sourceChannel.id, accessHash: sourceChannel.accessHash }),
